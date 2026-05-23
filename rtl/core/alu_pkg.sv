@@ -1,3 +1,13 @@
+// ============================================================================
+// File Name   : alu_pkg.sv
+// Author      : Kevin Toledo Fernandez / GitHub: ktf-respos
+// Date        : 2026-05-22
+// Project     : RISC-V 32-bit Processor
+// Description : Enum definitions for ALU
+//
+// License     : MIT
+// ============================================================================
+
 package alu_pkg;
     typedef enum logic [3:0] {
         ARITH_ADD,          // adds two 32 bit numbers
