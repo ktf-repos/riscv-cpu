@@ -1,3 +1,13 @@
+// ============================================================================
+// File Name   : alu_TB.sv
+// Author      : Kevin Toledo Fernandez / GitHub: ktf-respos
+// Date        : 2026-05-22
+// Project     : RISC-V 32-bit Processor
+// Description : Testbench for the 10 main ALU operations 
+//
+// License     : MIT
+// ============================================================================
+
 module alu_TB();
     import alu_pkg::*;
 

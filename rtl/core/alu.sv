@@ -5,11 +5,11 @@
 // Project     : RISC-V 32-bit Processor
 // Description : Arithmetic Logic Unit. Implements RISC-V RV32I second_operandase integer 
 //               instructions. Combinational logic only.
-//             : Supported operations:
-//             : ARIRTHMETIC -- add (0), subtract (1)
 //
 // License     : MIT
 // ============================================================================
+
+import alu_pkg::*;
 
 module ALU (
     input logic [31:0] first_operand, 
@@ -19,7 +19,6 @@ module ALU (
     output logic [31:0] result,
     output logic zero_flag
 );
-    import alu_pkg::*;
     
     logic [4:0] shamt;
     assign shamt = second_operand[4:0];
