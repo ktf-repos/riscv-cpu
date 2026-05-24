@@ -1,6 +1,6 @@
 // ============================================================================
 // File Name   : alu_pkg.sv
-// Author      : Kevin Toledo Fernandez / GitHub: ktf-respos
+// Author      : Kevin Toledo Fernandez / GitHub: ktf-repos
 // Date        : 2026-05-22
 // Project     : RISC-V 32-bit Processor
 // Description : Enum definitions for ALU
