@@ -1,6 +1,6 @@
 // ============================================================================
 // File Name   : alu.sv
-// Author      : Kevin Toledo Fernandez / GitHub: ktf-respos
+// Author      : Kevin Toledo Fernandez / GitHub: ktf-repos
 // Date        : 2026-05-22
 // Project     : RISC-V 32-bit Processor
 // Description : Arithmetic Logic Unit. Implements RISC-V RV32I second_operandase integer 
