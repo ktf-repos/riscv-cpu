@@ -66,7 +66,7 @@ module alu_TB();
         $display("========================================\n");
  
         // --------------------------------------------------------------------
-        // 1. ARITH_ADD (Addition)
+        // ARITH_ADD (Addition)
         // --------------------------------------------------------------------
         run_test("ADD 1: Basic Positive",  ARITH_ADD, 32'd0,  32'd10, 32'd10, 1'b0);
         run_test("ADD 2: Basic Positive 2",ARITH_ADD, 32'd15, 32'd25, 32'd40, 1'b0);
@@ -75,7 +75,7 @@ module alu_TB();
         run_test("ADD 5: Neg + Neg",       ARITH_ADD, -32'd5, -32'd5, -32'd10, 1'b0);
  
         // --------------------------------------------------------------------
-        // 2. ARITH_SUB (Subtraction)
+        // ARITH_SUB (Subtraction)
         // --------------------------------------------------------------------
         run_test("SUB 1: Basic Positive",  ARITH_SUB, 32'd10, 32'd5,  32'd5,  1'b0);
         run_test("SUB 2: Result is Zero",  ARITH_SUB, 32'd10, 32'd10, 32'd0,  1'b1);
@@ -84,7 +84,7 @@ module alu_TB();
         run_test("SUB 5: Pos - Larger Pos",ARITH_SUB, 32'd100,32'd200,-32'd100, 1'b0);
  
         // --------------------------------------------------------------------
-        // 3. LOGIC_AND (Bitwise AND)
+        // LOGIC_AND (Bitwise AND)
         // --------------------------------------------------------------------
         run_test("AND 1: All 1s & All 0s", LOGIC_AND, 32'hFFFFFFFF, 32'h00000000, 32'h00000000, 1'b1);
         run_test("AND 2: Alternating Bits",LOGIC_AND, 32'hAAAAAAAA, 32'h55555555, 32'h00000000, 1'b1);
@@ -93,7 +93,7 @@ module alu_TB();
         run_test("AND 5: Identical Vals",  LOGIC_AND, 32'h12345678, 32'h12345678, 32'h12345678, 1'b0);
  
         // --------------------------------------------------------------------
-        // 4. LOGIC_OR (Bitwise OR)
+        // LOGIC_OR (Bitwise OR)
         // --------------------------------------------------------------------
         run_test("OR 1: Alternating Bits", LOGIC_OR,  32'hAAAAAAAA, 32'h55555555, 32'hFFFFFFFF, 1'b0);
         run_test("OR 2: All 0s",           LOGIC_OR,  32'h00000000, 32'h00000000, 32'h00000000, 1'b1);
@@ -102,7 +102,7 @@ module alu_TB();
         run_test("OR 5: Overlapping Bits", LOGIC_OR,  32'h11111111, 32'h22222222, 32'h33333333, 1'b0);
  
         // --------------------------------------------------------------------
-        // 5. LOGIC_XOR (Bitwise XOR)
+        // LOGIC_XOR (Bitwise XOR)
         // --------------------------------------------------------------------
         run_test("XOR 1: Identical Vals",  LOGIC_XOR, 32'hFFFFFFFF, 32'hFFFFFFFF, 32'h00000000, 1'b1);
         run_test("XOR 2: Alternating",     LOGIC_XOR, 32'hAAAAAAAA, 32'h55555555, 32'hFFFFFFFF, 1'b0);
@@ -111,7 +111,7 @@ module alu_TB();
         run_test("XOR 5: Same Number",     LOGIC_XOR, 32'h12345678, 32'h12345678, 32'h00000000, 1'b1);
  
         // --------------------------------------------------------------------
-        // 6. SHIFT_L_LOGIC (Shift Left Logical)
+        // SHIFT_L_LOGIC (Shift Left Logical)
         // --------------------------------------------------------------------
         run_test("SLL 1: Shift by 0",      SHIFT_L_LOGIC, 32'd1, 32'd0,  32'd1, 1'b0);
         run_test("SLL 2: Shift by 1",      SHIFT_L_LOGIC, 32'd1, 32'd1,  32'd2, 1'b0);
@@ -120,7 +120,7 @@ module alu_TB();
         run_test("SLL 5: Shift out",       SHIFT_L_LOGIC, 32'h80000000, 32'd1, 32'h00000000, 1'b1);
  
         // --------------------------------------------------------------------
-        // 7. SHIFT_R_LOGIC (Shift Right Logical)
+        // SHIFT_R_LOGIC (Shift Right Logical)
         // --------------------------------------------------------------------
         run_test("SRL 1: Shift Sign Bit",  SHIFT_R_LOGIC, 32'h80000000, 32'd31, 32'd1, 1'b0);
         run_test("SRL 2: Shift All 1s",    SHIFT_R_LOGIC, 32'hFFFFFFFF, 32'd4,  32'h0FFFFFFF, 1'b0);
@@ -129,7 +129,7 @@ module alu_TB();
         run_test("SRL 5: Shift to Zero",   SHIFT_R_LOGIC, 32'h0000000F, 32'd4,  32'h00000000, 1'b1);
  
         // --------------------------------------------------------------------
-        // 8. SHIFT_R_ARITH (Shift Right Arithmetic - maintains sign)
+        // SHIFT_R_ARITH (Shift Right Arithmetic - maintains sign)
         // --------------------------------------------------------------------
         run_test("SRA 1: Propagate Neg",   SHIFT_R_ARITH, 32'h80000000, 32'd31, 32'hFFFFFFFF, 1'b0);
         run_test("SRA 2: All 1s stays 1s", SHIFT_R_ARITH, 32'hFFFFFFFF, 32'd16, 32'hFFFFFFFF, 1'b0);
@@ -138,7 +138,7 @@ module alu_TB();
         run_test("SRA 5: One Shift",       SHIFT_R_ARITH, 32'h80000000, 32'd1,  32'hC0000000, 1'b0);
  
         // --------------------------------------------------------------------
-        // 9. SET_LESS_S (Set Less Than - Signed)
+        // SET_LESS_S (Set Less Than - Signed)
         // --------------------------------------------------------------------
         run_test("SLT 1: Pos < Pos",       SET_LESS_S,  32'd10, 32'd20, 32'd1, 1'b0);
         run_test("SLT 2: Pos > Pos",       SET_LESS_S,  32'd20, 32'd10, 32'd0, 1'b1);
@@ -147,7 +147,7 @@ module alu_TB();
         run_test("SLT 5: Neg < Pos",       SET_LESS_S, -32'd100,32'd50, 32'd1, 1'b0);
  
         // --------------------------------------------------------------------
-        // 10. SET_LESS_U (Set Less Than - Unsigned)
+        // SET_LESS_U (Set Less Than - Unsigned)
         // --------------------------------------------------------------------
         run_test("SLTU 1: Pos < Pos",      SET_LESS_U, 32'd10, 32'd20, 32'd1, 1'b0);
         run_test("SLTU 2: MaxUnsigned",    SET_LESS_U, 32'hFFFFFFFF, 32'd50, 32'd0, 1'b1); 
@@ -163,11 +163,12 @@ module alu_TB();
         $display("   Passed: %0d / %0d", tests_passed, tests_total);
         if (tests_passed == tests_total) begin
             // Prints in green if everything passes
-            $display("   STATUS: \033[0;32m[ALL GREEN - SUCCESS]\033[0m");
+            $display("   STATUS: \033[0;32m[SUCCESS]\033[0m");
         end else begin
             // Prints in red if there is a failure
             $display("   STATUS: \033[0;31m[FAILED]\033[0m Check logs above.");
         end
+        $display("   Time: %0d", $time);
         $display("========================================");
  
         $finish;
