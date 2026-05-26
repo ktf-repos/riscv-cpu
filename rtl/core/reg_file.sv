@@ -34,15 +34,19 @@ module reg_file(
  
     always_comb begin
         // Reads are combinational. Reading x0 is hardwired to output 0
-        if(rs1_addr != 5'b0)
-            rs1_val = registers[rs1_addr];
-        else
+        if(rs1_addr == 5'b0) 
             rs1_val = 32'b0;
-       
-        if(rs2_addr != 5'b0)
-            rs2_val = registers[rs2_addr];
+        else if(write_enable && rs1_addr == rd_addr)
+            rs1_val = rd_val;
         else
+            rs1_val = registers[rs1_addr];
+        
+        if(rs2_addr == 5'b0) 
             rs2_val = 32'b0;
+        else if(write_enable && rs2_addr == rd_addr)
+            rs2_val = rd_val;
+        else
+            rs2_val = registers[rs2_addr];
     end
  
     always_ff @(posedge clock) begin
